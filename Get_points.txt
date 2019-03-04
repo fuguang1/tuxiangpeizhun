@@ -1,0 +1,6 @@
+clear all;
+clc;
+I_oper = imread('Image A.jpg');
+I_base = imread('Image B.jpg');
+cpselect(I_oper,I_base);
+
