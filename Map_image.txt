@@ -1,0 +1,19 @@
+oper_arg = input('Plase input the operate name:','s');
+base_arg = input('Plase input the base name:','s');
+oper_point = eval(oper_arg);
+oper_point = oper_point';
+oper_point(end+1,:) = 1;
+base_point = eval(base_arg);
+base_point = base_point';
+base_point(end+1,:) = 1;
+Trmatrix = base_point*oper_point'*inv(oper_point*oper_point')
+type = 'affine';
+Trmatrix(3,:) = [0,0,1];
+form = Trmatrix';
+Transform = maketform(type,form);
+I_mapped = imtransform(I_oper,Transform);
+subplot(1,2,1);imshow(I_mapped);title('mapped');
+subplot(1,2,2);imshow(I_base);title('origin');
+
+
+
